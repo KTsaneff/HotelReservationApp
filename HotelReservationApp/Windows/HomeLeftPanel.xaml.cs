@@ -11,6 +11,7 @@ namespace HotelReservationApp.Windows
         public event EventHandler? MakeReservationRequested;
         public event EventHandler? ReservationCalendarRequested;
         public event EventHandler? UpcomingReservationsRequested;
+        public event EventHandler? ApplicationSettingsRequested;
 
         public HomeLeftPanel()
         {
@@ -119,6 +120,10 @@ namespace HotelReservationApp.Windows
             manageRoomsWindow.OnRoomAdded = LoadRooms;
             manageRoomsWindow.ShowDialog();
         }
-    }
 
+        private void ApplicationSettings_Click(object sender, RoutedEventArgs e)
+        {
+            ApplicationSettingsRequested?.Invoke(this, EventArgs.Empty);
+        }
+    }
 }

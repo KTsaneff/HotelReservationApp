@@ -6,16 +6,12 @@
     <Application.Resources>
 
         <!-- 🌐 General Rounded Button Style -->
-        <!-- Used for standard buttons like "Back", "Refresh", etc. -->
         <Style x:Key="RoundedButtonStyle" TargetType="Button">
-            <!-- Default appearance -->
             <Setter Property="Background" Value="#DDDDDD"/>
             <Setter Property="BorderBrush" Value="Gray"/>
             <Setter Property="BorderThickness" Value="1"/>
             <Setter Property="FontSize" Value="16"/>
             <Setter Property="Padding" Value="10,5"/>
-
-            <!-- Replace default look with a custom template -->
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
@@ -29,43 +25,29 @@
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
-
-            <!-- Ensure this style fully overrides the default -->
             <Setter Property="OverridesDefaultStyle" Value="True"/>
-
-            <!-- Hover and press effects -->
             <Style.Triggers>
                 <Trigger Property="IsMouseOver" Value="True">
                     <Setter Property="Background" Value="#BEE3F8"/>
-                    <!-- Light Blue -->
                 </Trigger>
                 <Trigger Property="IsPressed" Value="True">
                     <Setter Property="Background" Value="#A0D2F2"/>
-                    <!-- Slightly Darker Blue -->
                 </Trigger>
             </Style.Triggers>
         </Style>
 
         <!-- 🧮 Calculator Button Style -->
-        <!-- Used only for calculator buttons to give them a wider rectangular shape -->
         <Style x:Key="CalcButtonStyle" TargetType="Button">
-            <!-- General look -->
             <Setter Property="FontSize" Value="16"/>
             <Setter Property="Margin" Value="4"/>
-            <!-- Spacing between buttons -->
             <Setter Property="Padding" Value="10"/>
             <Setter Property="Height" Value="40"/>
             <Setter Property="Width" Value="60"/>
-            <!-- Wider than standard buttons -->
             <Setter Property="Background" Value="#E0E0E0"/>
             <Setter Property="BorderBrush" Value="#AAA"/>
             <Setter Property="BorderThickness" Value="1"/>
             <Setter Property="Cursor" Value="Hand"/>
-
-            <!-- Remove default styling to apply our own -->
             <Setter Property="OverridesDefaultStyle" Value="True"/>
-
-            <!-- Template with slightly rounded corners (rectangular style) -->
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
@@ -79,8 +61,6 @@
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
-
-            <!-- Hover/pressed effects -->
             <Style.Triggers>
                 <Trigger Property="IsMouseOver" Value="True">
                     <Setter Property="Background" Value="#D0D0D0"/>
@@ -98,26 +78,141 @@
             <Setter Property="Margin" Value="0,10,0,0"/>
         </Style>
 
-        <!-- 📝 TextBox Style for Form Fields -->
+        <!-- 📝 Rounded TextBox Style -->
         <Style x:Key="FormTextBoxStyle" TargetType="TextBox">
             <Setter Property="FontSize" Value="16"/>
             <Setter Property="Height" Value="35"/>
             <Setter Property="Margin" Value="0,2,0,8"/>
+            <Setter Property="Padding" Value="6"/>
+            <Setter Property="BorderBrush" Value="Gray"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="TextBox">
+                        <Border CornerRadius="8"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                Background="{TemplateBinding Background}">
+                            <ScrollViewer Margin="0" x:Name="PART_ContentHost"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
         </Style>
 
-        <!-- 📅 DatePicker Style for Form Fields -->
+        <!-- 📅 Rounded DatePicker Style -->
         <Style x:Key="FormDatePickerStyle" TargetType="DatePicker">
             <Setter Property="FontSize" Value="16"/>
             <Setter Property="Height" Value="35"/>
             <Setter Property="Margin" Value="0,2,0,8"/>
+            <Setter Property="Padding" Value="4"/>
+            <Setter Property="BorderBrush" Value="Gray"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Background" Value="White"/>
         </Style>
 
-        <!-- 🔽 ComboBox Style for Dropdown Fields -->
+        <!-- 🔤 DatePickerTextBox Rounded Style -->
+        <Style TargetType="DatePickerTextBox">
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="Padding" Value="6,2"/>
+            <Setter Property="BorderBrush" Value="Gray"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="DatePickerTextBox">
+                        <Border x:Name="PART_TextBox"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="8">
+                            <ScrollViewer Margin="0" x:Name="PART_ContentHost"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!-- 🔽 Rounded ComboBox Style -->
         <Style x:Key="FormComboBoxStyle" TargetType="ComboBox">
             <Setter Property="FontSize" Value="16"/>
             <Setter Property="Height" Value="35"/>
             <Setter Property="Margin" Value="0,2,0,8"/>
+            <Setter Property="Padding" Value="6"/>
+            <Setter Property="BorderBrush" Value="Gray"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ComboBox">
+                        <Grid>
+                            <!-- Outer border with rounded corners -->
+                            <Border x:Name="Border"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="8"/>
+
+                            <DockPanel Margin="4,0,25,0">
+                                <ContentPresenter VerticalAlignment="Center"
+                                          HorizontalAlignment="Left"
+                                          Margin="6,0,0,0"
+                                          RecognizesAccessKey="True"/>
+                            </DockPanel>
+
+                            <!-- Dropdown Toggle -->
+                            <ToggleButton x:Name="ToggleButton"
+                                  Focusable="False"
+                                  ClickMode="Press"
+                                  IsChecked="{Binding Path=IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
+                                  HorizontalAlignment="Right"
+                                  VerticalAlignment="Center"
+                                  Width="20"
+                                  Height="20"
+                                  Background="Transparent"
+                                  BorderThickness="0"
+                                  Margin="0,0,6,0">
+                                <Path Fill="Gray"
+                              Data="M 0 0 L 4 4 L 8 0 Z"
+                              HorizontalAlignment="Center"
+                              VerticalAlignment="Center"
+                              Width="8"
+                              Height="4"/>
+                            </ToggleButton>
+
+                            <!-- Popup Dropdown List -->
+                            <Popup x:Name="Popup"
+                           Placement="Bottom"
+                           IsOpen="{TemplateBinding IsDropDownOpen}"
+                           AllowsTransparency="True"
+                           Focusable="False"
+                           PopupAnimation="Slide">
+                                <Grid MaxHeight="200"
+                              MinWidth="{TemplateBinding ActualWidth}"
+                              Background="White">
+                                    <Border BorderBrush="Gray"
+                                    BorderThickness="1"
+                                    CornerRadius="4"
+                                    Background="White"/>
+                                    <ScrollViewer Margin="4"
+                                          SnapsToDevicePixels="True">
+                                        <StackPanel IsItemsHost="True"
+                                            KeyboardNavigation.DirectionalNavigation="Contained"/>
+                                    </ScrollViewer>
+                                </Grid>
+                            </Popup>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter TargetName="Border" Property="Background" Value="#EEE"/>
+                                <Setter TargetName="Border" Property="BorderBrush" Value="#AAA"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
         </Style>
+
 
     </Application.Resources>
 </Application>

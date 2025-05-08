@@ -26,10 +26,31 @@
                    FontWeight="Bold"
                    Margin="0,0,0,20"/>
 
-                <Button Content="🛏️ Current Accommodations" FontSize="16" Padding="8" Height="50" Margin="0,10" Click="CurrentAccommodations_Click"/>
-                <Button Content="✔️ Check-in Today" FontSize="16" Padding="8" Height="50" Margin="0,10"/>
-                <Button Content="⬅️ Check-out Today" FontSize="16" Padding="8" Height="50" Margin="0,10"/>
-                <Button Content="💰 Unpaid Bills" FontSize="16" Padding="8" Height="50" Margin="0,10"/>
+                <Button Style="{StaticResource RoundedButtonStyle}"
+                        Content="🛏️ Current Accommodations"
+                        FontSize="14"
+                        Height="45"
+                        Margin="0,6"
+                        Click="CurrentAccommodations_Click"/>
+
+                <Button Style="{StaticResource RoundedButtonStyle}"
+                        Content="✔️ Check-in Today"
+                        FontSize="14"
+                        Height="45"
+                        Margin="0,6"/>
+
+                <Button Style="{StaticResource RoundedButtonStyle}"
+                        Content="⬅️ Check-out Today"
+                        FontSize="14"
+                        Height="45"
+                        Margin="0,6"/>
+
+                <Button Style="{StaticResource RoundedButtonStyle}"
+                        Content="💰 Unpaid Bills"
+                        FontSize="14"
+                        Height="45"
+                        Margin="0,6"/>
+
 
                 <!-- Calculator Section (Split Layout) -->
                 <Border Margin="0,30,0,0" Padding="15" Background="#FFF6F6F6" BorderBrush="#DDD" BorderThickness="1" CornerRadius="10">

@@ -20,11 +20,49 @@
                        FontWeight="Bold"
                        Margin="0,0,0,20"/>
 
-            <Button Content="🆕 Make New Reservation" FontSize="18" Padding="10" Height="60" Margin="0,10" Click="NewReservation_Click"/>
-            <Button Content="📅 Reservation Calendar" FontSize="18" Padding="10" Height="60" Margin="0,10" Click="ReservationCalendar_Click"/>
-            <Button Content="📆 Upcoming Reservations" FontSize="18" Padding="10" Height="60" Margin="0,10" Click="UpcomingReservations_Click"/>
-            <Button Content="🕘 Past Reservations" FontSize="18" Padding="10" Height="60" Margin="0,10" Click="PastReservations_Click"/>
-            <Button Content="🛠️ Manage Rooms" FontSize="18" Padding="10" Height="60" Margin="0,10" Click="ManageRooms_Click"/>
+            <Button Style="{StaticResource RoundedButtonStyle}"
+                    Content="🆕 Make New Reservation"
+                    FontSize="14"
+                    Height="45"
+                    Margin="0,6"
+                    Click="NewReservation_Click"/>
+
+            <Button Style="{StaticResource RoundedButtonStyle}"
+                    Content="📅 Reservation Calendar"
+                    FontSize="14"
+                    Height="45"
+                    Margin="0,6"
+                    Click="ReservationCalendar_Click"/>
+
+            <Button Style="{StaticResource RoundedButtonStyle}"
+                    Content="📆 Upcoming Reservations"
+                    FontSize="14"
+                    Height="45"
+                    Margin="0,6"
+                    Click="UpcomingReservations_Click"/>
+
+            <Button Style="{StaticResource RoundedButtonStyle}"
+                    Content="🕘 Past Reservations"
+                    FontSize="14"
+                    Height="45"
+                    Margin="0,6"
+                    Click="PastReservations_Click"/>
+
+            <Button Style="{StaticResource RoundedButtonStyle}"
+                    Content="🛠️ Manage Rooms"
+                    FontSize="14"
+                    Height="45"
+                    Margin="0,6"
+                    Click="ManageRooms_Click"/>
+
+            <Button Style="{StaticResource RoundedButtonStyle}"
+                    Content="⚙️ Application Settings"
+                    FontSize="14"
+                    Height="45"
+                    Margin="0,6"
+                    Click="ApplicationSettings_Click"/>
+
+
         </StackPanel>
 
         <Border Grid.Row="1" Background="#F0F0F0" CornerRadius="10" Margin="0,20,0,0" Padding="10">

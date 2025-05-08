@@ -30,13 +30,14 @@ namespace HotelReservationApp.Windows
             var leftPanel = new HomeLeftPanel();
             leftPanel.MakeReservationRequested += HandleMakeReservation;
             leftPanel.ReservationCalendarRequested += HandleReservationCalendar;
+            leftPanel.UpcomingReservationsRequested += HandleUpcomingReservations;
 
             LeftPanelContainer.Content = leftPanel;
         }
 
         private void HandleMakeReservation(object? sender, EventArgs e)
         {
-            var reservationView = new NewReservationView();
+            var reservationView = new NewReservationView(_main);
             reservationView.BackToHomeRequested += HandleBackToHome;
             LeftPanelContainer.Content = reservationView;
         }
@@ -56,7 +57,7 @@ namespace HotelReservationApp.Windows
             MessageBox.Show("Opening New Reservation form...");
         }
 
-        private void UpcomingReservations_Click(object sender, RoutedEventArgs e)
+        private void HandleUpcomingReservations(object? sender, EventArgs e)
         {
             _main.NavigateToUpcomingReservations();
         }
@@ -238,6 +239,7 @@ namespace HotelReservationApp.Windows
         {
             var homeLeftPanel = new HomeLeftPanel();
             homeLeftPanel.MakeReservationRequested += HandleMakeReservation;
+            homeLeftPanel.ReservationCalendarRequested += HandleReservationCalendar;
             LeftPanelContainer.Content = homeLeftPanel;
         }
     }

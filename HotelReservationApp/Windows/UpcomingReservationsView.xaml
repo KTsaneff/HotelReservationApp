@@ -31,77 +31,58 @@
                            Grid.Column="1"/>
             </Grid>
 
-            <!-- Reservation Card 1 -->
-            <Border BorderBrush="Gray" BorderThickness="1" Margin="10" Padding="10" CornerRadius="5">
-                <StackPanel>
+            <Border BorderBrush="Gray" BorderThickness="1" Margin="10" Padding="10" CornerRadius="5" Width="Auto">
+                <DockPanel LastChildFill="False" HorizontalAlignment="Stretch">
 
-                    <!-- Check-in and Check-out -->
-                    <TextBlock>
+                    <!-- Reservation Info -->
+                    <TextBlock DockPanel.Dock="Left" VerticalAlignment="Center" TextWrapping="Wrap">
             <Run Text="Check-in: 2025-05-01" FontWeight="Bold"/>
-            <Run Text=" | Check-out: 2025-05-05" />
+            <Run Text=" | Check-out: 2025-05-05"/>
             <Run Text=" (4 nights)" FontStyle="Italic" Foreground="Gray"/>
-                    </TextBlock>
-
-                    <!-- Guest and guest count -->
-                    <TextBlock>
-            <Run Text="Guest: " />
+            <Run Text=" | Guest: " />
             <Run Text="John Doe" FontWeight="Bold" />
-            <Run Text=" | Adults: 2, Children: 1" />
+            <Run Text=" | Phone: " />
+            <Run Text="+359 88 123 4567" FontWeight="Bold"/>
+            <Run Text=" | Booked on: 2025-04-15"/>
+            <Run Text=" | Room: 101"/>
                     </TextBlock>
 
-                    <!-- Phone (bolded) -->
-                    <TextBlock>
-            <Run Text="Phone: " />
-            <Run Text="+359 88 123 4567" FontWeight="Bold" />
-                    </TextBlock>
-
-                    <!-- Booking date and Room number on same line -->
-                    <TextBlock>
-            <Run Text="Booked on: 2025-04-15" />
-            <Run Text=" | Room: 101" />
-                    </TextBlock>
-
-                    <Button Content="Details" Margin="0,10,0,0" Width="100"
-                HorizontalAlignment="Left"
+                    <!-- Right-Aligned Button -->
+                    <Button Content="Details"
+                Margin="20,0,0,0"
+                Width="80"
+                HorizontalAlignment="Right"
                 Click="DetailsButton_Click"/>
-                </StackPanel>
+                </DockPanel>
             </Border>
 
-            <!-- Reservation Card 2 -->
-            <Border BorderBrush="Gray" BorderThickness="1" Margin="10" Padding="10" CornerRadius="5">
-                <StackPanel>
 
-                    <!-- Check-in and Check-out -->
-                    <TextBlock>
+
+            <Border BorderBrush="Gray" BorderThickness="1" Margin="10" Padding="10" CornerRadius="5" Width="Auto">
+                <DockPanel LastChildFill="False" HorizontalAlignment="Stretch">
+
+                    <!-- Reservation Info -->
+                    <TextBlock DockPanel.Dock="Left" VerticalAlignment="Center" TextWrapping="Wrap">
             <Run Text="Check-in: 2025-05-01" FontWeight="Bold"/>
-            <Run Text=" | Check-out: 2025-05-05" />
+            <Run Text=" | Check-out: 2025-05-05"/>
             <Run Text=" (4 nights)" FontStyle="Italic" Foreground="Gray"/>
-                    </TextBlock>
-
-                    <!-- Guest and guest count -->
-                    <TextBlock>
-            <Run Text="Guest: " />
+            <Run Text=" | Guest: " />
             <Run Text="John Doe" FontWeight="Bold" />
-            <Run Text=" | Adults: 2, Children: 1" />
+            <Run Text=" | Phone: " />
+            <Run Text="+359 88 123 4567" FontWeight="Bold"/>
+            <Run Text=" | Booked on: 2025-04-15"/>
+            <Run Text=" | Room: 101"/>
                     </TextBlock>
 
-                    <!-- Phone (bolded) -->
-                    <TextBlock>
-            <Run Text="Phone: " />
-            <Run Text="+359 88 123 4567" FontWeight="Bold" />
-                    </TextBlock>
-
-                    <!-- Booking date and Room number on same line -->
-                    <TextBlock>
-            <Run Text="Booked on: 2025-04-15" />
-            <Run Text=" | Room: 101" />
-                    </TextBlock>
-
-                    <Button Content="Details" Margin="0,10,0,0" Width="100"
-                HorizontalAlignment="Left"
+                    <!-- Right-Aligned Button -->
+                    <Button Content="Details"
+                Margin="20,0,0,0"
+                Width="80"
+                HorizontalAlignment="Right"
                 Click="DetailsButton_Click"/>
-                </StackPanel>
+                </DockPanel>
             </Border>
+
 
 
         </StackPanel>

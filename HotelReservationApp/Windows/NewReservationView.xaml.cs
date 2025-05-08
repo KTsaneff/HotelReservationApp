@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System.DirectoryServices.ActiveDirectory;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace HotelReservationApp.Windows
@@ -8,21 +9,41 @@ namespace HotelReservationApp.Windows
     /// </summary>
     public partial class NewReservationView : UserControl
     {
+        private readonly MainWindow _main;
         public event EventHandler? BackToHomeRequested;
-        public NewReservationView()
+        public NewReservationView(MainWindow main)
         {
+            _main = main;
             InitializeComponent();
         }
 
         private void SaveReservation_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Reservation saved!");
-            // TODO: Save to database later
+            if (sender is Button saveButton)
+            {
+                saveButton.IsEnabled = false;
+                saveButton.Content = "Saved";
+
+                try
+                {
+                    // TODO: Add logic to save to the database here
+
+                    MessageBox.Show("Reservation saved!");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error: {ex.Message}");
+
+                    // Re-enable the button in case of failure
+                    saveButton.IsEnabled = true;
+                    saveButton.Content = "💾 Save Reservation";
+                }
+            }
         }
 
-        private void BackToHome_Click(object sender, RoutedEventArgs e)
+        private void BackToHome_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            BackToHomeRequested?.Invoke(this, EventArgs.Empty);
+            _main.NavigateToHome();
         }
 
         private void NightsBox_TextChanged(object sender, TextChangedEventArgs e)
