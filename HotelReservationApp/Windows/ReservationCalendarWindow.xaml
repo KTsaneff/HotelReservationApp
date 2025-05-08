@@ -1,0 +1,119 @@
+﻿<UserControl x:Class="HotelReservationApp.Windows.ReservationCalendarView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:HotelReservationApp.Windows">
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Orientation="Vertical" VerticalAlignment="Top" Margin="0,0,0,10">
+
+            <!-- Top Grid: Back Button + Title -->
+            <Grid Margin="0,0,0,5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- Back Button -->
+                <Button Grid.Column="0"
+                        Content="🏨 Back to Hotel"
+                        Width="160"
+                        Height="45"
+                        Style="{StaticResource RoundedButtonStyle}"
+                        Click="BackToHome_Click"/>
+
+                <!-- Centered Title -->
+                <TextBlock Grid.Column="1"
+                           Text="📅 Reservation Calendar"
+                           FontSize="26"
+                           FontWeight="Bold"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Center"/>
+            </Grid>
+
+            <!-- Top Separator -->
+            <Separator Margin="0,5"/>
+
+            <!-- Period Selector -->
+            <StackPanel Orientation="Horizontal" Margin="0,5,0,5">
+                <TextBlock Text="From:" VerticalAlignment="Center" Margin="0,0,5,0"/>
+                <DatePicker x:Name="StartDatePicker" Width="120" Margin="0,0,10,0"/>
+                <TextBlock Text="To:" VerticalAlignment="Center" Margin="0,0,5,0"/>
+                <DatePicker x:Name="EndDatePicker" Width="120" Margin="0,0,10,0"/>
+
+                <!-- Refresh Button -->
+                <Button Content="🔄 Refresh"
+                        Width="120"
+                        Height="25"
+                        FontSize="14"
+                        Style="{StaticResource RoundedButtonStyle}"
+                        Click="Refresh_Click"/>
+            </StackPanel>
+
+            <!-- Bottom Separator -->
+            <Separator Margin="0,5"/>
+        </StackPanel>
+
+        <!-- Timeline Table -->
+        <ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+            <StackPanel>
+
+                <!-- Date Headers with placeholder -->
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+                    <!-- Placeholder header to align with RoomNumber -->
+                    <Border Width="80" Height="30" Background="Transparent"/>
+
+                    <!-- Date headers -->
+                    <ItemsControl x:Name="DateHeaderList">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Border BorderBrush="Gray" BorderThickness="1" Width="60" Height="30" Background="#EEE">
+                                    <TextBlock Text="{Binding}" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold"/>
+                                </Border>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel Orientation="Horizontal"/>
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                    </ItemsControl>
+                </StackPanel>
+
+                <!-- Room Rows -->
+                <ItemsControl x:Name="CalendarList">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal" Margin="0,2">
+                                <!-- Room number -->
+                                <Border BorderBrush="Gray" BorderThickness="1" Width="80" Height="30" Background="#F9F9F9">
+                                    <TextBlock Text="{Binding RoomNumber}" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold"/>
+                                </Border>
+
+                                <!-- Days -->
+                                <ItemsControl ItemsSource="{Binding Days}">
+                                    <ItemsControl.ItemTemplate>
+                                        <DataTemplate>
+                                            <Border BorderBrush="LightGray" BorderThickness="1" Width="60" Height="30">
+                                                <TextBlock Text="{Binding}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                            </Border>
+                                        </DataTemplate>
+                                    </ItemsControl.ItemTemplate>
+                                    <ItemsControl.ItemsPanel>
+                                        <ItemsPanelTemplate>
+                                            <StackPanel Orientation="Horizontal"/>
+                                        </ItemsPanelTemplate>
+                                    </ItemsControl.ItemsPanel>
+                                </ItemsControl>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</UserControl>

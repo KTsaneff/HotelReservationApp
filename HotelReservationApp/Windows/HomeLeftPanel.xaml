@@ -1,0 +1,34 @@
+﻿<UserControl x:Class="HotelReservationApp.Windows.HomeLeftPanel"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:HotelReservationApp.Windows"
+             Height="Auto" Width="Auto">
+    
+    <!-- Left Panel -->
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <!-- Left Buttons -->
+        <StackPanel Grid.Row="0">
+
+            <!-- 🏨 Hotel Title -->
+            <TextBlock Text="🏨 Hotel"
+                       FontSize="24"
+                       FontWeight="Bold"
+                       Margin="0,0,0,20"/>
+
+            <Button Content="🆕 Make New Reservation" FontSize="18" Padding="10" Height="60" Margin="0,10" Click="NewReservation_Click"/>
+            <Button Content="📅 Reservation Calendar" FontSize="18" Padding="10" Height="60" Margin="0,10" Click="ReservationCalendar_Click"/>
+            <Button Content="📆 Upcoming Reservations" FontSize="18" Padding="10" Height="60" Margin="0,10" Click="UpcomingReservations_Click"/>
+            <Button Content="🕘 Past Reservations" FontSize="18" Padding="10" Height="60" Margin="0,10" Click="PastReservations_Click"/>
+            <Button Content="🛠️ Manage Rooms" FontSize="18" Padding="10" Height="60" Margin="0,10" Click="ManageRooms_Click"/>
+        </StackPanel>
+
+        <Border Grid.Row="1" Background="#F0F0F0" CornerRadius="10" Margin="0,20,0,0" Padding="10">
+            <UniformGrid x:Name="RoomGrid" Columns="5" Rows="3" Margin="5"/>
+        </Border>
+    </Grid>
+</UserControl>

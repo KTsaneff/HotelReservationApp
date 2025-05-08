@@ -1,0 +1,123 @@
+﻿<Application x:Class="HotelReservationApp.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:HotelReservationApp"
+             StartupUri="Windows/MainWindow.xaml">
+    <Application.Resources>
+
+        <!-- 🌐 General Rounded Button Style -->
+        <!-- Used for standard buttons like "Back", "Refresh", etc. -->
+        <Style x:Key="RoundedButtonStyle" TargetType="Button">
+            <!-- Default appearance -->
+            <Setter Property="Background" Value="#DDDDDD"/>
+            <Setter Property="BorderBrush" Value="Gray"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Padding" Value="10,5"/>
+
+            <!-- Replace default look with a custom template -->
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border CornerRadius="10"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}">
+                            <ContentPresenter HorizontalAlignment="Center"
+                                              VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+
+            <!-- Ensure this style fully overrides the default -->
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+
+            <!-- Hover and press effects -->
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#BEE3F8"/>
+                    <!-- Light Blue -->
+                </Trigger>
+                <Trigger Property="IsPressed" Value="True">
+                    <Setter Property="Background" Value="#A0D2F2"/>
+                    <!-- Slightly Darker Blue -->
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <!-- 🧮 Calculator Button Style -->
+        <!-- Used only for calculator buttons to give them a wider rectangular shape -->
+        <Style x:Key="CalcButtonStyle" TargetType="Button">
+            <!-- General look -->
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Margin" Value="4"/>
+            <!-- Spacing between buttons -->
+            <Setter Property="Padding" Value="10"/>
+            <Setter Property="Height" Value="40"/>
+            <Setter Property="Width" Value="60"/>
+            <!-- Wider than standard buttons -->
+            <Setter Property="Background" Value="#E0E0E0"/>
+            <Setter Property="BorderBrush" Value="#AAA"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Cursor" Value="Hand"/>
+
+            <!-- Remove default styling to apply our own -->
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+
+            <!-- Template with slightly rounded corners (rectangular style) -->
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="6">
+                            <ContentPresenter HorizontalAlignment="Center"
+                                              VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+
+            <!-- Hover/pressed effects -->
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#D0D0D0"/>
+                </Trigger>
+                <Trigger Property="IsPressed" Value="True">
+                    <Setter Property="Background" Value="#C0C0C0"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <!-- 🔤 Label Style for Form Fields -->
+        <Style x:Key="FormLabelStyle" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="Margin" Value="0,10,0,0"/>
+        </Style>
+
+        <!-- 📝 TextBox Style for Form Fields -->
+        <Style x:Key="FormTextBoxStyle" TargetType="TextBox">
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Height" Value="35"/>
+            <Setter Property="Margin" Value="0,2,0,8"/>
+        </Style>
+
+        <!-- 📅 DatePicker Style for Form Fields -->
+        <Style x:Key="FormDatePickerStyle" TargetType="DatePicker">
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Height" Value="35"/>
+            <Setter Property="Margin" Value="0,2,0,8"/>
+        </Style>
+
+        <!-- 🔽 ComboBox Style for Dropdown Fields -->
+        <Style x:Key="FormComboBoxStyle" TargetType="ComboBox">
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Height" Value="35"/>
+            <Setter Property="Margin" Value="0,2,0,8"/>
+        </Style>
+
+    </Application.Resources>
+</Application>

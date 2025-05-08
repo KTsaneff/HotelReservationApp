@@ -1,0 +1,48 @@
+﻿<Window x:Class="HotelReservationApp.Windows.ManageRoomsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Manage Rooms" Height="300" Width="350">
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <!-- Room Number -->
+            <RowDefinition Height="Auto"/>
+            <!-- Room Type -->
+            <RowDefinition Height="Auto"/>
+            <!-- Price -->
+            <RowDefinition Height="Auto"/>
+            <!-- Bookable -->
+            <RowDefinition Height="Auto"/>
+            <!-- Button -->
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Room Number -->
+        <TextBlock Text="Room Number:" Grid.Row="0" Grid.Column="0" Margin="0,0,10,10" VerticalAlignment="Center"/>
+        <TextBox x:Name="RoomNumberTextBox" Grid.Row="0" Grid.Column="1" Margin="0,0,0,10"/>
+
+        <!-- Room Type -->
+        <TextBlock Text="Room Type:" Grid.Row="1" Grid.Column="0" Margin="0,0,10,10" VerticalAlignment="Center"/>
+        <ComboBox x:Name="RoomTypeComboBox"
+          Grid.Row="1"
+          Grid.Column="1"
+          Margin="0,0,0,10"
+          Height="25"
+          SelectedIndex="0" />
+
+
+        <!-- Price -->
+        <TextBlock Text="Price/Night:" Grid.Row="2" Grid.Column="0" Margin="0,0,10,10" VerticalAlignment="Center"/>
+        <TextBox x:Name="PriceTextBox" Grid.Row="2" Grid.Column="1" Margin="0,0,0,10"/>
+
+        <!-- Bookable -->
+        <CheckBox x:Name="IsBookableCheckBox" Content="Bookable" Grid.Row="3" Grid.Column="1" Margin="0,0,0,10"/>
+
+        <!-- Button -->
+        <Button Content="Add Room" Grid.Row="4" Grid.Column="1" Width="120" Height="40"
+                Click="AddRoom_Click" HorizontalAlignment="Center"/>
+    </Grid>
+</Window>

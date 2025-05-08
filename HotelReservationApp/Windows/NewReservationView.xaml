@@ -1,0 +1,78 @@
+﻿<UserControl x:Class="HotelReservationApp.Windows.NewReservationView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:HotelReservationApp.Windows"
+             Height="Auto" Width="Auto">
+
+    <ScrollViewer>
+        <StackPanel Margin="20">
+
+            <!-- 📝 Header -->
+            <TextBlock Text="📝 New Reservation"
+                       FontSize="24"
+                       FontWeight="Bold"
+                       Margin="0,0,0,20"/>
+
+            <!-- 👤 Guest Name -->
+            <TextBlock Text="Guest Name:" Style="{StaticResource FormLabelStyle}"/>
+            <TextBox x:Name="GuestNameBox" Style="{StaticResource FormTextBoxStyle}"/>
+
+            <!-- 📞 Phone Number -->
+            <TextBlock Text="Phone Number:" Style="{StaticResource FormLabelStyle}"/>
+            <TextBox x:Name="PhoneBox" Style="{StaticResource FormTextBoxStyle}"/>
+
+            <!-- 🏨 Room -->
+            <TextBlock Text="Room:" Style="{StaticResource FormLabelStyle}"/>
+            <ComboBox x:Name="RoomSelector" Style="{StaticResource FormComboBoxStyle}"/>
+
+            <!-- 🗓️ Start Date & 🛌 Nights in one row -->
+            <StackPanel Orientation="Horizontal" Margin="0,10,0,0" VerticalAlignment="Center">
+                <StackPanel Width="200">
+                    <TextBlock Text="Start Date:" Style="{StaticResource FormLabelStyle}"/>
+                    <DatePicker x:Name="StartDatePicker"
+                    Style="{StaticResource FormDatePickerStyle}"
+                    SelectedDateChanged="StartDatePicker_SelectedDateChanged"/>
+                </StackPanel>
+
+                <StackPanel Width="150" Margin="20,0,0,0">
+                    <TextBlock Text="Nights:" Style="{StaticResource FormLabelStyle}"/>
+                    <TextBox x:Name="NightsBox" Style="{StaticResource FormTextBoxStyle}"
+                 TextChanged="NightsBox_TextChanged"/>
+                </StackPanel>
+            </StackPanel>
+
+            <!-- 🗓️ End Date (calculated automatically) -->
+            <TextBlock Text="End Date:" Style="{StaticResource FormLabelStyle}"/>
+            <DatePicker x:Name="EndDatePicker" Style="{StaticResource FormDatePickerStyle}" IsEnabled="False"/>
+
+
+            <!-- 👨‍👩‍👧 Adults / Children -->
+            <TextBlock Text="Adults / Children:" Style="{StaticResource FormLabelStyle}"/>
+            <StackPanel Orientation="Horizontal">
+                <TextBox x:Name="AdultsBox" Width="50" Style="{StaticResource FormTextBoxStyle}" Margin="0,0,10,0"/>
+                <TextBox x:Name="ChildrenBox" Width="50" Style="{StaticResource FormTextBoxStyle}"/>
+            </StackPanel>
+
+            <!-- 💵 Price Per Night -->
+            <TextBlock Text="Price Per Night:" Style="{StaticResource FormLabelStyle}"/>
+            <TextBox x:Name="PriceBox" Style="{StaticResource FormTextBoxStyle}"/>
+
+            <!-- ✅ Action Buttons -->
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0,20,0,0">
+                <Button Content="🏨 Back to Hotel"
+                        Width="160"
+                        Height="45"
+                        Margin="0,0,10,0"
+                        Style="{StaticResource RoundedButtonStyle}"
+                        Click="BackToHome_Click"/>
+
+                <Button Content="💾 Save Reservation"
+                        Width="160"
+                        Height="45"
+                        Style="{StaticResource RoundedButtonStyle}"
+                        Click="SaveReservation_Click"/>
+            </StackPanel>
+
+        </StackPanel>
+    </ScrollViewer>
+</UserControl>
