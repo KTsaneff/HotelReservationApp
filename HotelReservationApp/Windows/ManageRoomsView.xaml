@@ -1,0 +1,64 @@
+﻿<UserControl x:Class="HotelReservationApp.Windows.ManageRoomsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             Height="Auto" Width="Auto">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <!-- Back button -->
+            <RowDefinition Height="Auto"/>
+            <!-- Command controls (reserved) -->
+            <RowDefinition Height="*" />
+            <!-- Room grid -->
+        </Grid.RowDefinitions>
+
+        <!-- Top: Back Button -->
+        <StackPanel Grid.Row="0">
+            <Button Content="🏨 Back to Hotel"
+                    Click="BackToHome_Click"
+                    Style="{StaticResource RoundedButtonStyle}"
+                    Width="160"
+                    Height="45"
+                    Margin="0,0,0,20"
+                    HorizontalAlignment="Left"/>
+        </StackPanel>
+
+        <!-- Middle: Command Controls -->
+        <Border Grid.Row="1" Margin="0,0,0,10" Padding="15"
+        Background="#ffffff" BorderBrush="#ccc" BorderThickness="1" CornerRadius="8">
+
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Top" Width="200">
+
+                <Button Content="➕ Add Room"
+                Style="{StaticResource RoundedButtonStyle}"
+                Height="45"
+                Margin="0,0,0,10"/>
+
+                <Button Content="✏️ Edit Room"
+                Style="{StaticResource RoundedButtonStyle}"
+                Height="45"
+                Margin="0,0,0,10"/>
+
+                <Button Content="🗑️ Delete Room"
+                Style="{StaticResource RoundedButtonStyle}"
+                Height="45"
+                Margin="0,0,0,20"/>
+
+                <!-- Refresh button with stronger separation -->
+                <Button Content="🔄 Refresh List"
+                Style="{StaticResource RoundedButtonStyle}"
+                Height="45"
+                Background="#e6f7ff"
+                FontWeight="Bold"
+                Foreground="DarkSlateBlue"/>
+
+            </StackPanel>
+        </Border>
+
+        <!-- Bottom: Room Grid (same as HomeLeftPanel) -->
+        <Border Grid.Row="2" Background="#F0F0F0" CornerRadius="10" Margin="0,0,0,0" Padding="10">
+            <UniformGrid x:Name="RoomGrid" Columns="5" Rows="3" Margin="5"/>
+        </Border>
+    </Grid>
+</UserControl>

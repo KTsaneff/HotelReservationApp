@@ -31,6 +31,7 @@ namespace HotelReservationApp.Windows
             leftPanel.MakeReservationRequested += HandleMakeReservation;
             leftPanel.ReservationCalendarRequested += HandleReservationCalendar;
             leftPanel.UpcomingReservationsRequested += HandleUpcomingReservations;
+            leftPanel.ManageRoomsRequested += HandleManageRooms;
 
             LeftPanelContainer.Content = leftPanel;
         }
@@ -40,6 +41,13 @@ namespace HotelReservationApp.Windows
             var reservationView = new NewReservationView(_main);
             reservationView.BackToHomeRequested += HandleBackToHome;
             LeftPanelContainer.Content = reservationView;
+        }
+
+        private void HandleManageRooms(object? sender, EventArgs e)
+        {
+            var manageRoomsView = new ManageRoomsView(_main);
+            manageRoomsView.BackToHomeRequested += HandleBackToHome;
+            LeftPanelContainer.Content = manageRoomsView;
         }
 
         private void HandleReservationCalendar(object? sender, EventArgs e)

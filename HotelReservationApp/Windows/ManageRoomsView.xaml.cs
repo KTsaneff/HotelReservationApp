@@ -1,23 +1,38 @@
-﻿using System.DirectoryServices.ActiveDirectory;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
 using HotelReservationApp.Data;
 
 namespace HotelReservationApp.Windows
 {
-    public partial class HomeLeftPanel : UserControl
+    /// <summary>
+    /// Interaction logic for ManageRoomsView.xaml
+    /// </summary>
+    public partial class ManageRoomsView : UserControl
     {
-        public event EventHandler? MakeReservationRequested;
-        public event EventHandler? ReservationCalendarRequested;
-        public event EventHandler? UpcomingReservationsRequested;
-        public event EventHandler? ApplicationSettingsRequested;
-        public event EventHandler? ManageRoomsRequested;
-
-        public HomeLeftPanel()
+        private readonly MainWindow _main;
+        public event EventHandler? BackToHomeRequested;
+        public ManageRoomsView(MainWindow main)
         {
             InitializeComponent();
             LoadRooms();
+            _main = main;
+        }
+
+        private void BackToHome_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            _main.NavigateToHome();
         }
 
         public void LoadRooms()
@@ -98,31 +113,6 @@ namespace HotelReservationApp.Windows
 
                 RoomGrid.Children.Add(border);
             }
-        }
-
-        private void NewReservation_Click(object sender, RoutedEventArgs e)
-        {
-            MakeReservationRequested?.Invoke(this, EventArgs.Empty);
-        }
-
-        private void ReservationCalendar_Click(object sender, RoutedEventArgs e)
-        {
-            ReservationCalendarRequested?.Invoke(this, EventArgs.Empty);
-        }
-
-        private void UpcomingReservations_Click(object sender, RoutedEventArgs e)
-        {
-            UpcomingReservationsRequested?.Invoke(this, EventArgs.Empty);
-        }
-        private void PastReservations_Click(object sender, RoutedEventArgs e) { }
-        private void ManageRooms_Click(object sender, RoutedEventArgs e)
-        {
-            ManageRoomsRequested?.Invoke(this, EventArgs.Empty);
-        }
-
-        private void ApplicationSettings_Click(object sender, RoutedEventArgs e)
-        {
-            ApplicationSettingsRequested?.Invoke(this, EventArgs.Empty);
         }
     }
 }
